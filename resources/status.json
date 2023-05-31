@@ -1,0 +1,11 @@
+{
+    "type": "status",
+    "carSpeed": 60,
+    "acceleration": 5,
+    "location": {
+        "x": "500px",
+        "y": "500px"
+    },
+    "trafficLight": "green",
+    "roadCondition": "slippery"
+}
