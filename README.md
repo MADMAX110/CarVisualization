@@ -1,6 +1,6 @@
 # CarVisualization
-首先安装NodeJs
-然后再依次执行以下命令即可运行
+Install NodeJs first
+Then run the following commands in sequence
 
 1、npm init
 
