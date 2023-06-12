@@ -20,7 +20,7 @@
     text-align: center;
     text-decoration: none;
     color: #fff;    
-    font-family: Tahoma;
+    font-family: STXingkai;
     outline: none;
 }
 #nav li a:hover {
@@ -60,11 +60,13 @@
 }
 #sidebar {
     position: fixed;
-    top: 0;
-    right: 0;
-    width: 15vw;
-    height: 100vh;
-    background-color: #eee;
+    top: 60px;
+    bottom: 0px;
+    right: -10em;
+    width: 10em;
+    height: 100%;
+    background-color: transparent;
+    box-shadow: 1px, 1px, 1px, 1px;
 }
 #status {
     margin-bottom: 20px;

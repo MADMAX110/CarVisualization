@@ -1,6 +1,8 @@
+let dir = "C:/CarVisualization";
+
 window.onload = function() {
   setInterval(() => {
-    fetch('../resources/car_view.json')
+    fetch(dir + '/car_view.json')
     .then(res => res.json())
     .then(data => {
         var base64Image = data.image;

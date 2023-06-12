@@ -1,23 +1,35 @@
 const { app, BrowserWindow } = require('electron')
-
 const ws = require("ws");
-const fs = require("fs")
+const fs = require("fs");
 const wss = new ws.Server({ port: 1234 });
+
+let dir = "C:/CarVisualization";
+fs.access(dir, err => {
+  if (err) { 
+    fs.mkdir(dir, err => {
+      if (err) throw err;
+      console.log('Directory created');
+    });
+  } else {
+    console.log('Directory exists');
+  }
+});
+
 wss.on('connection', (ws) => {
   ws.on('message', (message) => {
     console.log(`Received message: ${message}`)
     try {
       var data = JSON.parse(message);
       if (data.type == "status") {
-        fs.writeFile('resources/status.json', message, (err) => {
+        fs.writeFile(dir + '/status.json', message, (err) => {
           if (err) throw err
         })
       } else if (data.type == "car_view") {
-        fs.writeFile('resources/car_view.json', message, (err) => {
+        fs.writeFile(dir + '/car_view.json', message, (err) => {
           if (err) throw err
         })
       } else {
-        fs.writeFile('resources/test.json', message, (err) => {
+        fs.writeFile(dir + '/others.json', message, (err) => {
           if (err) throw err
         })
       }
@@ -33,8 +45,8 @@ const path = require('path')
 // modify your existing createWindow() function
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 1400,
-    height: 1400,
+    width: 1200,
+    height: 1200,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
